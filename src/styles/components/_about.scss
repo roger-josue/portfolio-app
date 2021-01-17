@@ -1,0 +1,112 @@
+@use '../utilities/helpers.scss' as helpers;
+
+
+#about-section{
+    background-color: helpers.setColor(bg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .about-col{
+        padding: 0 0.50rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        h2{
+            text-align: center;
+            color: helpers.setColor(secondary);
+        }
+
+    @include helpers.media(helpers.$tablet){
+        flex-basis: 45%;    
+    }
+    }
+
+    .profile{
+        
+        figure{
+            text-align: center;
+            img{
+                object-fit: cover;
+                object-position: center -40px;
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
+            }
+        }
+        p{
+            text-align: center;
+            line-height: 1.6;
+            color: helpers.setColor(text-color);
+            max-width: 40ch;
+
+            @include helpers.media(helpers.$desktop){
+                font-size: 1.225rem;
+            }
+        }
+
+    }
+
+    .skills{
+
+        .skill-bar{
+            display: flex;
+            flex-flow: row wrap;
+            width: 90%;
+            &-header{
+                flex-basis: 30%;
+                text-align: center;
+                background-color: helpers.setColor(primary);
+                color: #ffffff;
+            }
+            &-level{
+                flex-basis: 70%;
+                background-color: helpers.setColor(accent);
+                color: #ffffff;
+                text-align: right;
+                padding-right: 0.50rem;
+            }
+
+            @include helpers.media(helpers.$tablet){
+                width: 100%;
+                
+                &-header,
+                &-level{
+                    height: 25px;
+                    line-height: 25px;
+                }
+            }
+
+            @include helpers.media(helpers.$desktop){
+                
+                &-header,
+                &-level{
+                    height: 30px;
+                    line-height: 30px;
+                }
+            }
+
+        }
+        
+        @include helpers.media(helpers.$tablet){
+            h2{
+                margin-bottom: 1.5rem;
+            }
+            gap: 1.3rem;
+        }
+    }
+
+    @include helpers.media(helpers.$tablet){
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
+
+        .section-title{
+            flex-basis: 100%;
+        }
+    }
+    
+}

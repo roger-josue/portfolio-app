@@ -1,0 +1,24 @@
+/*==================== Animations ====================*/
+
+//==================== Menu animations ====================
+        @keyframes menu-in {
+            from{
+                transform: translatey(-192px);
+                visibility: hidden;
+            }
+            to{
+                transform: translatey(0px);
+                visibility: visible;
+            }
+        }
+
+        @keyframes menu-out {
+            from{
+                transform: translatey(0px);
+                visibility: visible;
+            }
+            to{
+                transform: translatey(-192px);
+                visibility: hidden;
+            }
+        }
