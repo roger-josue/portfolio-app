@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import profileImg from '../../assets/profile.jpg';
+import { Skills } from './Skills';
 
 
 export const About = () => {
@@ -15,69 +17,14 @@ export const About = () => {
                 <p>I’m a Systems Engineer graduated at Universidad Internacional San Isidro Labrador in February 2020.
                     I’ve always had a passion for building things, and because of that feeling, I became a front-end
                     developer.
-                    Now I have a serious passion for creating dynamic responsive websites.
+                    Now I have a serious passion for creating dynamic and responsive web UI.
+                    Currently, I'm focusing on React and all its environment, 
+                    but I'm always open to learn new technologies and seize new opportunities.
+                    <br />
+                    <Link className="link" to="contact-section">Let's talk!</Link>
                 </p>
             </article>
-            <article className="about-col skills">
-                <h2>Skills</h2>
-
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>HTML</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>80%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>CSS</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>80%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>SASS</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>70%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>Bootstrap</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>70%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>JavaScript</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>80%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>Angular</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>80%</span>
-                    </div>
-                </div>
-                <div className="skill-bar">
-                    <div className="skill-bar-header">
-                        <span>Git</span>
-                    </div>
-                    <div className="skill-bar-level">
-                        <span>50%</span>
-                    </div>
-                </div>
-            </article>
+            <Skills />
         </section>
     )
 }
