@@ -25,6 +25,24 @@ export const Projects = () => {
             name: 'Project',
             img: projectImg,
             desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
+        },
+        {
+            id: 4,
+            name: 'DogApp',
+            img: dogAppImg,
+            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
+        },
+        {
+            id: 5,
+            name: 'Todo-list-App',
+            img: todoAppImg,
+            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
+        },
+        {
+            id: 6,
+            name: 'Project',
+            img: projectImg,
+            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
         }
     ]
     return (
