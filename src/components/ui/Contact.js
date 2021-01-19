@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { Alert } from './Alert';
+import React, { useEffect, useRef, useState } from 'react';
+import { sendMessage } from '../../firebase/firebase-CRUD';
+// import { Alert } from './Alert';
+
+const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export const Contact = () => {
 
@@ -10,6 +13,59 @@ export const Contact = () => {
     });
 
     const { name, email, message } = formValues;
+
+    const emailInput = useRef(null);
+    const nameInput = useRef(null);
+    const messageInput = useRef(null);
+
+    const invalidInput = "border: 1px solid rgba(255,0,0,0.60) !important;";
+    
+    useEffect(() => {
+        if(email){
+
+            if( !(emailRegExp.test( email )) ){
+                emailInput.current.style = invalidInput;
+            } else{
+                emailInput.current.style = "border: 1px solid grey !important;";
+                
+            }
+        }
+    }, [email]);
+
+    useEffect(() => {
+        if(name){
+
+            if( name.length < 2 ){
+                nameInput.current.style = invalidInput;
+            } else{
+                nameInput.current.style = "border: 1px solid grey !important;";
+            }
+        }
+    }, [name]);
+
+    useEffect(() => {
+        if(message){
+
+            if( message.length < 2 ){
+                messageInput.current.style = invalidInput;
+            } else{
+                messageInput.current.style = "border: 1px solid grey !important;";
+            }
+        }
+    }, [message]);
+
+
+    const createMessage = async() => {
+
+        try {
+            const resp = await sendMessage( formValues );  
+            console.log(resp);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
     
     const handleInputChange = ({ target }) => {
         setFormValues({
@@ -21,23 +77,27 @@ export const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if (!(emailRegExp.test( email )) )
-        {
-            alert("You have entered an invalid email address!")
+        if( name.length < 2){
+            nameInput.current.style = invalidInput;
+            nameInput.current.focus();
             return;
         }
-        if( name.length < 2){
-            alert("You have entered an invalid name")
+        if (!(emailRegExp.test( email )) )
+        {
+            emailInput.current.style = invalidInput;
+            emailInput.current.focus();
+
             return;
         }
         if( message.length < 2){
-            alert("You have entered a short message")
+            messageInput.current.style = invalidInput;
+            messageInput.current.focus();
+            return;
         }
 
-        console.log(formValues);
-
-    }
+        createMessage();
+    
+    } 
 
 
     return (
@@ -46,9 +106,10 @@ export const Contact = () => {
             <div id="contact">
                 <h3>Leave me a message!</h3>
                 <form onSubmit={ handleSubmit }>
-                    <Alert message="I am an alert"/>
-                    <input 
+                    {/* <Alert message="I am an alert"/> */}
+                    <input
                         name="name" 
+                        ref={ nameInput }
                         type="text" 
                         placeholder="Name"
                         value={ name }
@@ -56,7 +117,8 @@ export const Contact = () => {
                     />
 
                     <input 
-                        name="email" 
+                        name="email"
+                        ref={ emailInput } 
                         type="email" 
                         placeholder="Email"
                         value={ email }
@@ -64,6 +126,7 @@ export const Contact = () => {
                     />
                     <textarea 
                         name="message" 
+                        ref={ messageInput }
                         placeholder="Your message" 
                         cols="24" 
                         rows="12"
