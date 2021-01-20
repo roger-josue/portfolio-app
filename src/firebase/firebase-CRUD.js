@@ -8,7 +8,7 @@ export const sendMessage = async( msg ) => {
 
        return {
            id : doc.id ,
-           res: 'Your message has been successfully sent'
+           res: 'Your message has been sent successfully'
        };
 
     } catch (error) {

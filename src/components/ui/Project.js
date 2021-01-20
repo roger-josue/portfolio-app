@@ -8,7 +8,7 @@ export const Project = ({ name, img, desc}) => {
                 <figcaption>
                     <h3 className="project-title">{ name }</h3>
                     <p>{ desc }</p>
-                    <a href="/">Read more <i className="fas fa-info-circle"></i></a>
+                    <button>Read more <i className="fas fa-info-circle"></i></button>
                 </figcaption>
             </figure>
         </div>
