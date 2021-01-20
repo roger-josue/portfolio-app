@@ -47,6 +47,8 @@ $lg-desktop: 1440px;
     }
 }
 
+// Helper classes
+
 .active{
     color: setColor(secondary) !important;
 }
@@ -60,4 +62,67 @@ $lg-desktop: 1440px;
     &:hover{
         color: setColor(secondary) !important;
     }
+}
+
+
+.dialog{
+    // visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.20);
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bitter', serif;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.15rem;
+}
+
+.alert{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 25%;
+    background-color: setColor(bg);
+    align-items: center;
+    justify-content: flex-start;
+
+    .alert-header{
+        width: 100%;
+        height: 40px;
+        background-color: setColor(primary);
+        margin-bottom: 2rem;
+    }
+
+    i{
+        opacity: 0;
+        margin-top: 0.75rem;
+        font-size: 4rem;
+    }
+
+    @include media($tablet){
+        width: 60%;
+        height: 30%;
+    }
+
+    @include media($desktop){
+        width: 45%;
+        height: 30%;
+
+    }
+    
+}
+
+.danger{
+    color: lighten(rgba(255,0,0,0.60),15) !important;
+}
+.success{
+    color: lighten(rgba(13, 158, 13, 0.6),15) !important;
 }

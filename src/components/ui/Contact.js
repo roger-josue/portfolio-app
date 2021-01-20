@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { sendMessage } from '../../firebase/firebase-CRUD';
-// import { Alert } from './Alert';
+import { Alert } from './Alert';
 
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -11,6 +11,17 @@ export const Contact = () => {
         email: '',
         message: ''
     });
+
+    const [spinner, setspinner] = useState(false);
+
+   const [alert, setAlert] = useState({
+       show: false,
+       type: '',
+       message: ''
+   });
+
+   const { show } = alert;
+
 
     const { name, email, message } = formValues;
 
@@ -58,11 +69,27 @@ export const Contact = () => {
     const createMessage = async() => {
 
         try {
-            const resp = await sendMessage( formValues );  
-            console.log(resp);
+            const resp = await sendMessage( formValues );
+            setAlert({
+                show: true,
+                type: 'success',
+                message: resp.res
+            });
 
+            setspinner(false);
+
+            setFormValues({
+                name: '',
+                email: '',
+                message: ''
+            });
+            
         } catch (error) {
-            console.log(error)
+            setAlert({
+                show: true,
+                type: 'danger',
+                message: 'There has been an error, your message could not be sent'
+            });
         }
     }
     
@@ -95,6 +122,7 @@ export const Contact = () => {
             return;
         }
 
+        setspinner(true);
         createMessage();
     
     } 
@@ -106,7 +134,6 @@ export const Contact = () => {
             <div id="contact">
                 <h3>Leave me a message!</h3>
                 <form onSubmit={ handleSubmit }>
-                    {/* <Alert message="I am an alert"/> */}
                     <input
                         name="name" 
                         ref={ nameInput }
@@ -133,9 +160,17 @@ export const Contact = () => {
                         value={ message }
                         onChange={ handleInputChange }>
                     </textarea>
-                    <button name="send" type="submit">SUBMIT</button>
+                    <button 
+                        name="send" 
+                        type="submit"
+                        style={{fontSize: '1.125rem', padding: '0.50em'}}
+                        disabled={spinner}>{ (spinner) ? <i className="fas fa-spinner fa-spin"></i> : 'SUBMIT'}</button>
                 </form>
             </div>
+            {
+                (show) && 
+                <Alert alert={ alert } setAlert={ setAlert }/>
+            }
         </section>
     )
 }
