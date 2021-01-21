@@ -65,6 +65,14 @@ export const Contact = () => {
         }
     }, [message]);
 
+    useEffect(() => {
+        if(show){
+            document.body.classList.add('stop-scrolling');
+        } else{
+            document.body.classList.remove('stop-scrolling');
+        }
+    }, [show]);
+
 
     const createMessage = async() => {
 

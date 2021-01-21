@@ -69,31 +69,144 @@ $lg-desktop: 1440px;
 
 .dialog{
     width: 100vw;
-    height: 100vh;
     background-color: rgba($color: #000000, $alpha: 0.20);
-    overflow-y: hidden;
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
-    z-index: 2;
+    overflow-y: auto;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     font-family: 'Bitter', serif;
     color: #ffffff;
     text-align: center;
     font-size: 1.15rem;
+    padding-top: 100px;
+    // opacity: 0;
 }
 
+.stop-scrolling { 
+    height: 100%; 
+    overflow: hidden; 
+} 
+
+.modal{
+    width: 90vw;
+    min-height: min-content;
+    margin-bottom: 2rem;
+    background-color: setColor(bg);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: setColor(text-color);
+
+    @include media($tablet){
+        width: 85vw;
+
+    }
+
+    @include media($desktop){
+        width: 80vw;
+    }
+
+    .modal-close{
+        margin: 0.75rem;
+        align-self: flex-end;
+        background-color: inherit;
+        // color: lighten(rgba(255,0,0,0.60),15);
+        color: lighten(setColor(secondary),15);
+        font-size: 3rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: color 400ms ease-in-out;
+        &:hover,
+        &:focus{
+            // color: rgba(255,0,0,0.60);
+            color: setColor(secondary);
+        }
+    }
+
+    .modal-title{
+        color: setColor(primary);
+        font-family: 'Bitter', serif;
+        font-size: 2rem;
+        padding: 0.75rem;
+        border-bottom: 3px solid setColor(accent);
+    }
+    
+    .modal-body-content{
+        padding: 0.75rem 1rem;
+        margin: 1.25rem 0;
+        
+        p{
+            text-align: center;
+        }
+    }
+    
+    .modal-visit-pages{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        @include media($tablet){
+            flex-direction: row;
+        }
+
+        a{
+            margin-bottom: 1rem;
+            @include buttons();
+            padding: 0.75rem;
+            width: 220px;
+            i{
+                margin-left: 0.75rem;
+                transition: color 400ms ease-in-out;
+            }
+            &:hover > i,
+            &:focus > i{
+                color: lighten(setColor(accent), 5);
+            }
+            
+            @include media($tablet){
+                margin: 0 1rem;
+            }
+        }
+    }
+    
+    
+    .modal-body-img{
+        width: 100%;
+        height: min-content;
+        margin: 2rem 0;
+
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+
+    }
+
+}
+
+
 .alert{
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     width: 75%;
-    height: 25%;
+    height: min-content;
     background-color: setColor(bg);
     align-items: center;
     justify-content: flex-start;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
 
     .alert-header{
         width: 100%;
@@ -110,13 +223,10 @@ $lg-desktop: 1440px;
 
     @include media($tablet){
         width: 60%;
-        height: 30%;
     }
 
     @include media($desktop){
         width: 45%;
-        height: 35%;
-
     }
     
 }
