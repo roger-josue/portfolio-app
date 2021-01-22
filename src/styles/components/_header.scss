@@ -131,9 +131,6 @@ header{
                     }
                 }
 
-                // &:first-child a{ //TODO: Delete
-                //     color: helpers.setColor(secondary);
-                // }
 
                 &:hover{
                     a{
@@ -179,16 +176,15 @@ header{
 
         h1{
             max-width: 20ch;
-            color: #ffffff;
+            background-image: linear-gradient(to right, #ffffff 30%, helpers.setColor(secondary) 70%);
+            background-clip: text;
+            color: transparent;
+            background-size: 400%;
+            background-position: left;
             font-family: 'Bitter', serif;
             font-size: 1.65rem;
             font-weight: 800;
             line-height: 0.99;
-
-            strong{
-                font-weight: 900;
-                color: helpers.setColor(secondary);
-            }
 
             @include helpers.media(375px){
                 font-size: 1.85rem;
