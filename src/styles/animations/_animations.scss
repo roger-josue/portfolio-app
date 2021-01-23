@@ -15,7 +15,7 @@
     }
 }
 
-@keyframes ease-in {
+@keyframes blink {
     from{
         opacity: 0;
     }
@@ -24,7 +24,16 @@
     }
 }
 
-@keyframes ease-out {
+@keyframes fade-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
     from{
         opacity: 1;
     }

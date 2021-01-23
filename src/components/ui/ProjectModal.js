@@ -5,11 +5,11 @@ export const ProjectModal = ({ showModal, setShowModal, name, poster, desc }) =>
     const modalRef = useRef(null);
 
     useEffect(() => {
-            modalRef.current.style = "animation: ease-in 400ms ease-in forwards";
+            modalRef.current.style = "animation: fade-in 400ms ease-in-out forwards";
     }, []);
     
     const handleCloseModal = () => {
-        modalRef.current.style = "animation: ease-out 400ms ease-out forwards";    
+        modalRef.current.style = "animation: fade-out 400ms ease-in-out forwards";    
         setTimeout(() => {
             setShowModal(false);
         }, 200);

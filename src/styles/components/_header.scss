@@ -25,6 +25,8 @@ header{
         flex-flow: row wrap;
         justify-content: flex-end;
         align-items: center;
+        opacity: 0;
+        animation: fade-in 400ms 6s ease-out forwards;
 
         #menu-toggle{
             position: relative;
@@ -201,6 +203,38 @@ header{
             @include helpers.media(helpers.$desktop){
                 font-size: 4rem;
             }
+
+            &::after{
+                content: '';
+                display: inline-block;
+                margin-left: 5px;
+                width: 3px;
+                height: 1.125rem;
+                background-color: helpers.setColor(secondary);
+                animation: blink 300ms 5s  infinite alternate;
+
+                @include helpers.media(375px){
+                    height: 1.40rem;
+                }
+    
+                @include helpers.media(helpers.$lg-phone){
+                    height: 1.45rem;
+                }
+
+                @include helpers.media(helpers.$tablet){
+                    width: 4px;
+                    height: 2.4rem;
+
+                }
+
+                @include helpers.media(helpers.$desktop){
+                    width: 5px;
+                    height: 2.8rem;
+
+                }
+
+
+            }
         }
 
         button{
@@ -210,6 +244,8 @@ header{
             text-transform: uppercase;
             font-weight: bold;
             @include helpers.buttons;
+            opacity: 0;
+            animation: fade-in 400ms 6s ease-out forwards;
 
             i{
                 font-size: 1rem;

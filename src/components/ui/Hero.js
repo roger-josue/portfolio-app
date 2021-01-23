@@ -8,7 +8,7 @@ export const Hero = () => {
     useEffect(() => {
         
         createTypewriter();
-        typewriter.current.style = 'animation: gradient-in 6s 0s 5 alternate forwards';
+        typewriter.current.style = 'animation: gradient-in 6s 0s 3 alternate forwards';
 
     },[]);
 
