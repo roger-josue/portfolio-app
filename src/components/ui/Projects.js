@@ -1,4 +1,5 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import projectImg from '../../assets/project.jpg';
 import todoAppImg from '../../assets/to-do.png';
 import todoAppPoster from '../../assets/to-do-big.png';
@@ -8,6 +9,9 @@ import { Project } from './Project';
 
 
 export const Projects = () => {
+
+    const { ref, inView } = useInView({threshold: 0.5, triggerOnce: true});
+
 
     const projects = [
         {
@@ -54,21 +58,26 @@ export const Projects = () => {
         }
     ]
     return (
-        <section id="projects-section">
+        <section id="projects-section" ref={ ref }>
             <h1 className="section-title">Projects</h1>
-            <section id="project-grid">
-                {
-                    projects.map( proj => (
-                        <Project 
+            {
+                (inView) &&
+
+                <section id="project-grid">
+                    {
+                        projects.map( proj => (
+                            <Project 
                             key={proj.id} 
                             name={ proj.name} 
                             thumbnail={ proj.thumbnail } 
                             poster={ proj.poster } 
                             desc={ proj.desc}
-                        />
-                    ))
-                }
-            </section>
+                            />
+                            ))
+                    }
+                </section>
+
+            }
         </section>
     )
 }

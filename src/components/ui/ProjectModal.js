@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export const ProjectModal = ({ showModal, setShowModal, name, poster, desc }) => {
+export const ProjectModal = ({ setShowModal, name, poster, desc }) => {
 
     const modalRef = useRef(null);
 
@@ -9,7 +9,7 @@ export const ProjectModal = ({ showModal, setShowModal, name, poster, desc }) =>
     }, []);
     
     const handleCloseModal = () => {
-        modalRef.current.style = "animation: fade-out 400ms ease-in-out forwards";    
+        modalRef.current.style = "animation: fade-out 400ms ease-out forwards";    
         setTimeout(() => {
             setShowModal(false);
         }, 200);

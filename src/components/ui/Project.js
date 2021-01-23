@@ -25,7 +25,7 @@ export const Project = ({ name, thumbnail, poster, desc}) => {
             </figure>
             {
                 (showModal) && 
-                    <ProjectModal showModal={ showModal }setShowModal={ setShowModal } name={name} poster={ poster } desc={ desc }/>
+                    <ProjectModal setShowModal={ setShowModal } name={name} poster={ poster } desc={ desc }/>
             }
         </div>
     )

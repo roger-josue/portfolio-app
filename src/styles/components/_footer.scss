@@ -4,6 +4,8 @@ footer{
     background-color: helpers.setColor(primary);
     padding: 4rem 0.50rem 2rem 0.50rem;
     position: relative;
+    opacity: 0;
+    animation: fade-in 400ms ease-out forwards;
 
     a{
         color: helpers.setColor(accent-light);
@@ -21,6 +23,8 @@ footer{
 
     nav{
         padding-bottom: 2rem;
+        opacity: 0;
+        animation: fade-in 400ms 400ms ease-out forwards;
         
         ul{
             display: flex;

@@ -12,6 +12,8 @@ header{
     height: 100vh;
     display: flex;
     flex-flow: row wrap;
+    
+
 
     nav{
         background-color: helpers.setColor(primary);
@@ -26,7 +28,7 @@ header{
         justify-content: flex-end;
         align-items: center;
         opacity: 0;
-        animation: fade-in 400ms 6s ease-out forwards;
+        animation: fade-in 400ms ease-out forwards;
 
         #menu-toggle{
             position: relative;
