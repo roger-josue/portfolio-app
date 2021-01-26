@@ -176,7 +176,9 @@ header{
         align-content: center;
         justify-content: center;
         text-align: center;
-        gap: 1rem;
+        &>*{
+            margin-bottom: 1rem !important;
+        }
 
         h1{
             max-width: 20ch;
@@ -267,6 +269,13 @@ header{
                 i{
                     font-size: 1.125rem;
                 }
+            }
+        }
+
+        @include helpers.media(helpers.$desktop){
+            gap: 1rem; 
+            &>*{
+                margin-bottom: 0 !important;
             }
         }
     }

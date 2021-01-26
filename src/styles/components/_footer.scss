@@ -31,11 +31,22 @@ footer{
             flex-flow: row wrap;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            &>*{
+                margin: 0 0.50rem !important;
+            }
+            
             
             li{
                 list-style: none;
             }
+            
+            @include helpers.media(helpers.$desktop){
+                gap: 1rem;
+                &>*{
+                    margin: 0 !important;
+                }
+            }
+
         }
     }
 
