@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { sendEmail } from '../../emailJs/emailJs';
 import { sendMessage } from '../../firebase/firebase-CRUD';
 import { Alert } from './Alert';
 
@@ -85,15 +86,24 @@ export const Contact = () => {
     }, [show]);
 
 
-    const createMessage = async() => {
+    const createMessage = async(e) => {
 
         try {
+            
             const resp = await sendMessage( formValues );
+            
+            if( resp ){
+
+                await sendEmail(e);
+            
+            }
+
             setAlert({
                 show: true,
                 type: 'success',
                 message: resp.res
             });
+
 
             setspinner(false);
 
@@ -104,6 +114,7 @@ export const Contact = () => {
             });
             
         } catch (error) {
+            setspinner(false);
             setAlert({
                 show: true,
                 type: 'danger',
@@ -142,7 +153,7 @@ export const Contact = () => {
         }
 
         setspinner(true);
-        createMessage();
+        createMessage(e);
     
     } 
 

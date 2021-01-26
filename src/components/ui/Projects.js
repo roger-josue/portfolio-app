@@ -34,29 +34,9 @@ export const Projects = () => {
             thumbnail: projectImg,
             poster: projectImg,
             desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
-        },
-        {
-            id: 4,
-            name: 'DogApp',
-            thumbnail: dogAppImg,
-            poster: dogAppPoster,
-            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
-        },
-        {
-            id: 5,
-            name: 'Todo-list-App',
-            thumbnail: todoAppImg,
-            poster: todoAppPoster,
-            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
-        },
-        {
-            id: 6,
-            name: 'Project',
-            thumbnail: projectImg,
-            poster: projectImg,
-            desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum animi nihil excepturi, eum iste explicabo similique at quae modi voluptate.'
         }
     ]
+    
     return (
         <section id="projects-section" ref={ ref }>
             <h1 className="section-title">Projects</h1>

@@ -20,6 +20,10 @@
             color: helpers.setColor(secondary);
             margin: 0 auto;
             opacity: 0;
+            
+            // @supports not (gap: 1.3rem){
+            //     margin-bottom: 1.3rem !important;
+            // }
         }
 
         form{
