@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export const ProjectModal = ({ setShowModal, name, poster, desc }) => {
+export const ProjectModal = ({ setShowModal, name, url, repository_url, poster, desc }) => {
 
     const modalRef = useRef(null);
 
@@ -24,8 +24,8 @@ export const ProjectModal = ({ setShowModal, name, poster, desc }) => {
                     <p>{ desc }</p>
                 </div>
                 <div className="modal-visit-pages">
-                <a target="_blank" rel="noreferrer" href="https://github.com/JosueVargasZ"> View project demo<i className="fas fa-external-link-alt"></i> </a>
-                <a target="_blank" rel="noreferrer" href="https://github.com/JosueVargasZ"> View source code<i className="fab fa-github"></i> </a>
+                <a target="_blank" rel="noreferrer" href={ url }> View project demo<i className="fas fa-external-link-alt"></i> </a>
+                <a target="_blank" rel="noreferrer" href={ repository_url }> View source code<i className="fab fa-github"></i> </a>
                 </div>
                 <figure className="modal-body-img">
                     <img src={ poster } alt=""/>

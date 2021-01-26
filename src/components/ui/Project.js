@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ProjectModal } from './ProjectModal';
 
-export const Project = ({ name, thumbnail, poster, desc}) => {
+export const Project = ({ name, url, repository_url, thumbnail, poster, desc}) => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -25,7 +25,13 @@ export const Project = ({ name, thumbnail, poster, desc}) => {
             </figure>
             {
                 (showModal) && 
-                    <ProjectModal setShowModal={ setShowModal } name={name} poster={ poster } desc={ desc }/>
+                    <ProjectModal 
+                        setShowModal={ setShowModal } 
+                        name={name}
+                        url={ url }
+                        repository_url={ repository_url } 
+                        poster={ poster } 
+                        desc={ desc }/>
             }
         </div>
     )

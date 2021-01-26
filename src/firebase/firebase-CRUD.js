@@ -40,3 +40,30 @@ export const getSkills = async( ) => {
     }
 
 }
+
+export const getProjects = async( ) => {
+    
+    try {
+
+        const data = [];
+
+        const docs = await db.collection("projects").get();
+
+        docs.forEach( (doc) => {
+            data.push( { 
+                name: doc.data().name,
+                url: doc.data().url,
+                repository_url: doc.data().repository_url,
+                thumbnail: doc.data().thumbnail,
+                poster: doc.data().poster,
+                desc: doc.data().desc,
+                 id: doc.id } );
+        });
+
+       return data;
+
+    } catch (error) {
+         throw error;
+    }
+
+}
