@@ -14,7 +14,7 @@ export const Footer = () => {
             </ul>
         </nav>
         <Link to="hero" id="arrow-home"> <i className="fas fa-chevron-up"></i> </Link>
-        <h4><small>JOSUE VARGAS &copy;</small> 2020</h4>
+        <h4><small>JOSUE VARGAS &copy;</small> { new Date().getFullYear() }</h4>
     </footer>
     )
 }
